@@ -9,7 +9,7 @@ function NavItem({ isActive, title }: NavItemProps) {
   return (
     <li
       className={cn(
-        'group relative cursor-pointer overflow-hidden transition hover:text-black',
+        'text-xs lg:text-sm group relative cursor-pointer list-none overflow-hidden transition hover:text-black',
         isActive && 'text-primary hover:text-primary'
       )}
     >
