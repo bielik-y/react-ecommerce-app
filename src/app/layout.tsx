@@ -18,7 +18,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={cn('bg-paper', inter.className)}>
+      <body className={cn('bg-paper antialiased h-screen', inter.className)}>
         <Header />
         {children}
       </body>

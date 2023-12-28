@@ -9,7 +9,15 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primary: '#fcb900'
+        primary: {
+          DEFAULT: '#fcb900',
+          dark: '#e3a412'
+        }
+      },
+      screens: {
+        tallscreen: {
+          raw: '(max-aspect-ratio: 24/25) and (min-width: 620px) and (min-height: 940px)'
+        }
       }
     }
   },
