@@ -78,6 +78,9 @@ function Header() {
               )}
             />
           </Link>
+          <button className='text-sm font-semibold uppercase'>
+            <NavItem isActive={path === '/login'} title="Login"/>
+          </button>
         </div>
       </nav>
     </header>
