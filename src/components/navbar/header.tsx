@@ -35,7 +35,7 @@ function Header() {
   const path = usePathname()
 
   return (
-    <header className="h-20 w-full border-b border-neutral-300/50 bg-white text-neutral-600 xl:px-2">
+    <header className="sticky top-0 z-50 h-20 w-full border-b border-neutral-300/50 bg-white/80 backdrop-blur-2xl text-neutral-600 xl:px-2">
       <nav className="mx-auto flex h-full max-w-screen-xl items-center justify-between px-4">
         <Link href="/">
           <Image
@@ -78,8 +78,8 @@ function Header() {
               )}
             />
           </Link>
-          <button className='text-sm font-semibold uppercase'>
-            <NavItem isActive={path === '/login'} title="Login"/>
+          <button className="text-sm font-semibold uppercase">
+            <NavItem isActive={path === '/login'} title="Login" />
           </button>
         </div>
       </nav>
