@@ -22,7 +22,7 @@ function Banner() {
       <div
         style={{
           position: 'absolute',
-          bottom: '60px',
+          bottom: '64px',
           width: '100%'
         }}
       >
@@ -42,7 +42,7 @@ function Banner() {
   }
 
   return (
-    <div className="tallscreen:h-1/2 relative h-full w-full">
+    <div className="relative h-full w-full tallscreen:h-1/2 mb-[416px] md:mb-[96px] xl:mb-[40px]">
       <Slider {...settings} className="h-full">
         <BannerItem
           src={sliderOne}
@@ -74,7 +74,7 @@ function Banner() {
         />
       </Slider>
 
-      <div className="relative bottom-0 left-1/2 flex min-h-20 -translate-x-1/2 flex-col items-center bg-white py-4 md:absolute md:-bottom-20 md:py-0 xl:-bottom-10 xl:flex-row">
+      <div className="relative bottom-0 left-1/2 flex min-h-20 -translate-x-1/2 flex-col items-center bg-white py-4 md:absolute md:-bottom-24 md:py-0 md:shadow-md xl:-bottom-10 xl:flex-row">
         <div className="flex flex-col md:flex-row">
           <BannerSection
             icon={Clock}
