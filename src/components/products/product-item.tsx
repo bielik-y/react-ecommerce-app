@@ -10,7 +10,7 @@ interface ProductItemProps {
 function ProductItem({ product }: ProductItemProps) {
   return (
     <div className="group relative overflow-hidden border-[1px] border-neutral-300 bg-white transition focus-within:border-neutral-500 focus-within:shadow-xl hover:border-neutral-500 hover:shadow-xl">
-      <Link href="">
+      <Link href={{ pathname: '/product', query: { id: product._id }}}>
         <Image
           width={500}
           height={500}
@@ -26,9 +26,16 @@ function ProductItem({ product }: ProductItemProps) {
       <div className="bg-neutral-100 p-4 group-hover:bg-neutral-50 group-hover:shadow-xl">
         <p className="transition group-hover:text-primary">{product.title}</p>
         <FormattedPrice className="font-semibold" price={product.price} />
-        <div className='flex items-center justify-between text-sm mt-2 font-medium'>
-          <button className='uppercase  hover:text-primary transition-colors'>Add to cart</button>
-          <Link href='/' className='uppercase hover:text-primary transition-colors'>More info</Link>
+        <div className="mt-2 flex items-center justify-between text-sm font-medium">
+          <button className="uppercase  transition-colors hover:text-primary">
+            Add to cart
+          </button>
+          <Link
+            href={{ pathname: '/product', query: { id: product._id }}}
+            className="uppercase transition-colors hover:text-primary"
+          >
+            More info
+          </Link>
         </div>
       </div>
     </div>

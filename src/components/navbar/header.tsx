@@ -8,7 +8,7 @@ import { Badge } from '@/components/ui/badge'
 import { NavItem } from '@/components/navbar/nav-item'
 import { Heart, ShoppingBasket } from 'lucide-react'
 
-const navigation = [
+export const navigation = [
   {
     title: 'Home',
     href: '/'
@@ -35,7 +35,7 @@ function Header() {
   const path = usePathname()
 
   return (
-    <header className="fixed top-0 z-50 h-20 w-full border-b border-neutral-300/50 bg-white/80 text-neutral-600 backdrop-blur-2xl xl:px-2">
+    <header className="sticky top-0 z-50 h-20 w-full border-b border-neutral-300/50 bg-white/80 text-neutral-600 backdrop-blur-2xl xl:px-2">
       <nav className="mx-auto flex h-full max-w-screen-xl items-center justify-between px-4">
         <Link href="/">
           <Image
