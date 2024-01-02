@@ -3,6 +3,7 @@ import { cn } from '@/lib/utils'
 import { Inter } from 'next/font/google'
 import { Header } from '@/components/navbar/header'
 import './globals.css'
+import { Footer } from '@/components/layout/footer'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -18,9 +19,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={cn('bg-paper antialiased h-screen mt-20', inter.className)}>
+      <body className={cn('bg-paper antialiased min-h-screen', inter.className)}>
         <Header />
         {children}
+        <Footer />
       </body>
     </html>
   )
