@@ -2,8 +2,9 @@ import type { Metadata } from 'next'
 import { cn } from '@/lib/utils'
 import { Inter } from 'next/font/google'
 import { Header } from '@/components/navbar/header'
-import './globals.css'
 import { Footer } from '@/components/layout/footer'
+import { SessionProvider } from '@/components/providers/session-provider'
+import './globals.css'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -19,10 +20,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={cn('bg-paper antialiased min-h-screen', inter.className)}>
-        <Header />
-        {children}
-        <Footer />
+      <body
+        className={cn('bg-paper min-h-screen antialiased', inter.className)}
+      >
+        <SessionProvider>
+          <Header />
+          {children}
+          <Footer />
+        </SessionProvider>
       </body>
     </html>
   )

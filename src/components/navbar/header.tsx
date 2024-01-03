@@ -3,6 +3,8 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { cn } from '@/lib/utils'
+import { signIn } from 'next-auth/react'
+import { useSession } from 'next-auth/react'
 import { usePathname } from 'next/navigation'
 import { Badge } from '@/components/ui/badge'
 import { NavItem } from '@/components/navbar/nav-item'
@@ -33,6 +35,7 @@ export const navigation = [
 
 function Header() {
   const path = usePathname()
+  const { data: session } = useSession()
 
   return (
     <header className="sticky top-0 z-50 h-20 w-full border-b border-neutral-300/50 bg-white/80 text-neutral-600 backdrop-blur-2xl xl:px-2">
@@ -78,9 +81,18 @@ function Header() {
               )}
             />
           </Link>
-          <button className="text-sm font-semibold uppercase">
-            <NavItem isActive={path === '/login'} title="Login" />
-          </button>
+          {session ? (
+            <Link href="/profile" className='text-sm font-semibold uppercase'>
+              <NavItem title="Profile" isActive={path === '/profile'} />
+            </Link>
+          ) : (
+            <button
+              onClick={() => signIn()}
+              className="text-sm font-semibold uppercase"
+            >
+              Login
+            </button>
+          )}
         </div>
       </nav>
     </header>
