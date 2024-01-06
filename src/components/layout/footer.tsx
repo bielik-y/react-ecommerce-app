@@ -27,7 +27,7 @@ const navigation = [
 
 function Footer() {
   return (
-    <div className="mt-5 bg-[#e79f2c] py-10 font-medium text-neutral-50">
+    <div className="mt-5 bg-[#f5a82c] py-10 font-medium text-neutral-50">
       <Container className="flex items-center justify-between flex-col md:flex-row gap-6">
         <Image
           className="opacity-80"
