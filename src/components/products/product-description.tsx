@@ -3,10 +3,9 @@
 import { FormattedPrice } from '@/components/products/formatted-price'
 import { Button } from '@/components/ui/button'
 import { addToCart } from '@/redux/cart/cart-slice'
-import { AppDispatch, RootState } from '@/redux/store'
+import { useAppDispatch, useAppSelector } from '@/redux/store'
 import { Heart } from 'lucide-react'
 import { toast } from 'react-toastify'
-import { useDispatch, useSelector } from 'react-redux'
 import {
   addToWishlist,
   removeFromWishlist
@@ -17,10 +16,8 @@ interface ProductDescriptionProps {
 }
 
 function ProductDescription({ product }: ProductDescriptionProps) {
-  const wishlistData = useSelector(
-    (state: RootState) => state.wishlist.wishlistData
-  )
-  const dispatch = useDispatch<AppDispatch>()
+  const wishlistData = useAppSelector((state) => state.wishlist.wishlistData)
+  const dispatch = useAppDispatch()
 
   const isFavorite = wishlistData.some((item) => item._id === product._id)
 

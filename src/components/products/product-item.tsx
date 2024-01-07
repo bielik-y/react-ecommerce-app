@@ -4,8 +4,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { FormattedPrice } from '@/components/products/formatted-price'
 import { Heart } from 'lucide-react'
-import { useDispatch, useSelector } from 'react-redux'
-import { AppDispatch, RootState } from '@/redux/store'
+import { useAppDispatch, useAppSelector } from '@/redux/store'
 import { addToCart } from '@/redux/cart/cart-slice'
 import { toast } from 'react-toastify'
 import {
@@ -18,10 +17,8 @@ interface ProductItemProps {
 }
 
 function ProductItem({ product }: ProductItemProps) {
-  const wishlistData = useSelector(
-    (state: RootState) => state.wishlist.wishlistData
-  )
-  const dispatch = useDispatch<AppDispatch>()
+  const wishlistData = useAppSelector((state) => state.wishlist.wishlistData)
+  const dispatch = useAppDispatch()
 
   const isFavorite = wishlistData.some((item) => item._id === product._id)
 
@@ -41,13 +38,12 @@ function ProductItem({ product }: ProductItemProps) {
           if (isFavorite) {
             dispatch(removeFromWishlist(product))
             toast.success(`${product.title} is removed from wishlist!`)
-          }
-          else {
+          } else {
             dispatch(addToWishlist(product))
             toast.success(`${product.title} is added to wishlist!`)
           }
         }}
-        fill={isFavorite ? "red" : "white"}
+        fill={isFavorite ? 'red' : 'white'}
         className="absolute right-4 top-4 h-5 w-5 cursor-pointer text-neutral-700 transition hover:text-black"
       />
       <div className="bg-neutral-100 p-4 group-hover:bg-neutral-50 group-hover:shadow-xl">
