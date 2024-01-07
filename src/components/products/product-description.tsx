@@ -1,12 +1,29 @@
+'use client'
+
 import { FormattedPrice } from '@/components/products/formatted-price'
 import { Button } from '@/components/ui/button'
+import { addToCart } from '@/redux/cart/cart-slice'
+import { AppDispatch, RootState } from '@/redux/store'
 import { Heart } from 'lucide-react'
+import { toast } from 'react-toastify'
+import { useDispatch, useSelector } from 'react-redux'
+import {
+  addToWishlist,
+  removeFromWishlist
+} from '@/redux/wishlist/wishlist-slice'
 
 interface ProductDescriptionProps {
   product: Product
 }
 
 function ProductDescription({ product }: ProductDescriptionProps) {
+  const wishlistData = useSelector(
+    (state: RootState) => state.wishlist.wishlistData
+  )
+  const dispatch = useDispatch<AppDispatch>()
+
+  const isFavorite = wishlistData.some((item) => item._id === product._id)
+
   return (
     <div className="flex w-full flex-col gap-2 bg-neutral-50 px-12 pb-10 md:w-1/2 md:p-10">
       <h2 className="text-3xl font-semibold">{product.title}</h2>
@@ -21,8 +38,29 @@ function ProductDescription({ product }: ProductDescriptionProps) {
         />
       </p>
       <div className="my-8 flex gap-4">
-        <Button className="w-40" text="Add to Cart" />
-        <button className='bg-white rounded-md w-10 h-10 border border-neutral-200 group'><Heart fill='black' className='m-auto text-black w-5 h-5 group-hover:scale-125 transition-transform '/></button>
+        <Button
+          onClick={() => {
+            dispatch(addToCart(product))
+            toast.success(`${product.title} is added to cart!`)
+          }}
+          className="w-40"
+          text="Add to Cart"
+        />
+        <button className="group h-10 w-10 rounded-md border border-neutral-200 bg-white">
+          <Heart
+            onClick={() => {
+              if (isFavorite) {
+                dispatch(removeFromWishlist(product))
+                toast.success(`${product.title} is removed from wishlist!`)
+              } else {
+                dispatch(addToWishlist(product))
+                toast.success(`${product.title} is added to wishlist!`)
+              }
+            }}
+            fill={isFavorite ? 'red' : 'white'}
+            className="m-auto h-5 w-5 text-black transition-transform group-hover:scale-125 "
+          />
+        </button>
       </div>
       <p>
         <span className="font-semibold">Brand: </span>

@@ -4,7 +4,10 @@ import { Inter } from 'next/font/google'
 import { Header } from '@/components/navbar/header'
 import { Footer } from '@/components/layout/footer'
 import { SessionProvider } from '@/components/providers/session-provider'
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 import './globals.css'
+import { StoreProvider } from '@/components/providers/store-provider'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -23,11 +26,14 @@ export default function RootLayout({
       <body
         className={cn('bg-paper min-h-screen antialiased', inter.className)}
       >
-        <SessionProvider>
-          <Header />
-          {children}
-          <Footer />
-        </SessionProvider>
+        <StoreProvider>
+          <SessionProvider>
+            <Header />
+            {children}
+            <Footer />
+            <ToastContainer position='bottom-right' limit={3} autoClose={2000} hideProgressBar/>
+          </SessionProvider>
+        </StoreProvider>
       </body>
     </html>
   )
