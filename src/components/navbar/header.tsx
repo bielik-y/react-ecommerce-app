@@ -50,6 +50,7 @@ function Header() {
             alt="Logo"
             width={180}
             height={52}
+            priority
           />
         </Link>
         <ul className="hidden items-center gap-5 text-sm font-semibold uppercase md:flex">
