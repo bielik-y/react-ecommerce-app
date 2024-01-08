@@ -43,6 +43,7 @@ Note: access to wishlist & card pages is available only for authorized users. To
 ## TODO
 - Store user & order data in DB (for full Backend implementation).
 - Animate delete item from cart & wishlist would be cool.
+- Provide custom sign in page due to website design.
 
 ## Screenshots
 
