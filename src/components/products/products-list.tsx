@@ -1,4 +1,4 @@
-import { ProductItem } from './product-item'
+import { ProductItem } from '@/components/products/product-item'
 
 interface ProductList {
   products: Product[]

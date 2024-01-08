@@ -1,6 +1,6 @@
-import Image from 'next/image'
-import { Container } from './container'
 import Link from 'next/link'
+import Image from 'next/image'
+import { Container } from '@/components/layout/container'
 
 const navigation = [
   {
