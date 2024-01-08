@@ -26,7 +26,7 @@ function CartContent() {
 
   if (productData.length === 0)
     return (
-      <div className="flex flex-col items-center justify-center gap-1 py-10">
+      <div className="min-h-80 flex flex-col items-center justify-center gap-1 py-10">
         <p className="text-lg font-bold">Your Cart is Empty</p>
         <Link
           href={'/'}

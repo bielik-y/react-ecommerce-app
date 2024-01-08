@@ -1,9 +1,9 @@
 'use client'
 
 import Link from 'next/link'
+import { toast } from 'react-toastify'
 import { useAppDispatch, useAppSelector } from '@/redux/store'
 import { resetWishlist } from '@/redux/wishlist/wishlist-slice'
-import { toast } from 'react-toastify'
 import { WishlistItem } from '@/components/wishlist/wishlist-item'
 
 function WishlistContent() {
@@ -22,7 +22,7 @@ function WishlistContent() {
 
   if (wishlistData.length === 0)
     return (
-      <div className="flex flex-col items-center justify-center gap-1 py-10">
+      <div className="min-h-80 flex flex-col items-center justify-center gap-1 py-10">
         <p className="text-lg font-bold">Your Wishlist is Empty</p>
         <Link
           href={'/'}
