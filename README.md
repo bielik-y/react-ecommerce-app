@@ -1,36 +1,53 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# E-commerce React app
 
-## Getting Started
+## Description
 
-First, run the development server:
+Web app for digital equipment store "Techstore" includes landing page, product pages, cart and includes payment system.
+I've been doing this project to improve my skills working with App Router in Next.js and Redux Toolkit. Main focus is frontend part, so there is no DB included.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+**Main used technologies:**
+- **Next.js 14** (App router)
+- **NextAuth** (Google & GitHub authorization)
+- **Stripe** (Payment system)
+- **Redux** (State management library, redux-persist is also used)
+- **TailwindCSS** (Styling)
+- **Framer Motion** (Animation)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Demo
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+App was deployed to [Railway](https://railway.app/). 
+You can see demo [here](https://react-ecommerce-app-production.up.railway.app/).
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Note: access to wishlist & card pages is available only for authorized users. To test payment system you can use these [test cards numbers](https://stripe.com/docs/terminal/references/testing#standard-test-cards/).
 
-## Learn More
+## Key Features
 
-To learn more about Next.js, take a look at the following resources:
+- SignIn with Google or GitHub account
+- Store landing page with slider 
+- Provide categories pages & single product page
+- Add product to cart or wishlist
+- Persist cart data & wishlist data in local storage
+- Card payment process with Stripe
+- Bill generating for payment
+- Fully responsive UI
+- SEO optimization provided
+- Client error handling with user notification
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Setting up 
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+1. Step 1: Install all dependencies `npm i`
+2. Step 2: Create .env file and add necessary variables (follow `env.example` file). Note that you need to setup urls in your Google Console and GitHub application to provide authorization.
+3. Start the app `npm run dev`
+(next-env.d.ts should be generated automatically during build)
 
-## Deploy on Vercel
+## TODO
+- Store user & order data in DB (for full Backend implementation).
+- Animate delete item from cart & wishlist would be cool.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Screenshots
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Here some screenshots of website if you are lazy to check demo or it doesn't work 😊
+
+![Screenshot 1](/screenshots/screenshot-1.png) |  ![Screenshot 2](/screenshots/screenshot-2.png)
+:-------------------------:|:-------------------------:
+![Screenshot 3](/screenshots/screenshot-3.png) |  ![Screenshot 4](/screenshots/screenshot-4.png)
