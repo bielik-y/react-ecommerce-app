@@ -12,6 +12,7 @@ import {
   REGISTER
 } from 'redux-persist'
 import storage from '@/redux/storage'
+import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux'
 
 const cartPersistConfig = {
   key: 'cart',
@@ -40,5 +41,8 @@ export const store = configureStore({
 
 export type RootState = ReturnType<typeof store.getState>
 export type AppDispatch = typeof store.dispatch
+
+export const useAppDispatch = () => useDispatch<AppDispatch>()
+export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector
 
 export let persistor = persistStore(store)
